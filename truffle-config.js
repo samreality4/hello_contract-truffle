@@ -9,10 +9,11 @@
  * truffleframework.com/docs/advanced/configuration
  */
 
-const Kit = require('@celo/contractkit')
-const kit = Kit.newKit('https://alfajores-forno.celo-testnet.org')
-
-const getAccount = require('./getAccount').getAccount
+ const Web3 = require('web3')
+ const ContractKit = require('@celo/contractkit')
+ const web3 = new Web3('https://alfajores-forno.celo-testnet.org')
+ const kit = ContractKit.newKitFromWeb3(web3)
+ const getAccount = require('./getAccount').getAccount
 
 async function awaitWrapper(){
     let account = await getAccount()
